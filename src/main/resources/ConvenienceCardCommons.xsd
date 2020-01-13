@@ -1,0 +1,35 @@
+<xs:schema targetNamespace="http://common.conveniencecard.service.corner.ch" version="1.0" xmlns:tns="http://common.conveniencecard.service.corner.ch" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:complexType name="callInfo">
+      <xs:sequence>
+         <xs:element minOccurs="1" maxOccurs="1" nillable="false" name="requestID" type="xs:string"/>
+         <xs:element minOccurs="1" maxOccurs="1" nillable="false" name="systemID" type="xs:string"/>
+         <xs:element minOccurs="1" maxOccurs="1" nillable="false" name="clientID" type="xs:string"/>
+         <xs:element minOccurs="1" maxOccurs="1" nillable="false" name="calledOperation" type="xs:string"/>
+         <xs:element minOccurs="1" maxOccurs="1" nillable="false" name="timestamp" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basicRequest">
+      <xs:sequence>
+         <xs:element minOccurs="1" maxOccurs="1" nillable="false" name="callInfo" type="tns:callInfo"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="basicResponse">
+      <xs:sequence>
+         <xs:element minOccurs="1" maxOccurs="1" nillable="false" name="callInfo" type="tns:callInfo"/>
+         <xs:element name="error" minOccurs="0" maxOccurs="1" nillable="true">
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:maxLength value="1"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element name="reason" minOccurs="0" maxOccurs="1" nillable="true">
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:maxLength value="64"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>
