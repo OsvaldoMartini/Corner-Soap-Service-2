@@ -6,28 +6,28 @@
 //
 
 
-package com.shifthunter.conveniencecardconfigurationmock;
+package ch.corner.service.conveniencecard.configuration;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import ch.corner.service.conveniencecard.common.BasicRequest;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for getDecodedPF20 complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
+ * &lt;complexType name="getDecodedPF20">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{http://common.conveniencecard.service.corner.ch}basicRequest">
  *       &lt;sequence>
- *         &lt;element name="Student" type="{http://www.shifthunter.com/convenienceCardConfigurationMock}Student"/>
+ *         &lt;element name="keyTab" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
- *     &lt;/restriction>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -35,37 +35,38 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "student"
+@XmlType(name = "getDecodedPF20", propOrder = {
+    "keyTab"
 })
-@XmlRootElement(name = "StudentDetailsResponse")
-public class StudentDetailsResponse {
+public class GetDecodedPF20
+    extends BasicRequest
+{
 
-    @XmlElement(name = "Student", required = true)
-    protected Student student;
+    @XmlElement(required = true)
+    protected String keyTab;
 
     /**
-     * Gets the value of the student property.
+     * Gets the value of the keyTab property.
      * 
      * @return
      *     possible object is
-     *     {@link Student }
+     *     {@link String }
      *     
      */
-    public Student getStudent() {
-        return student;
+    public String getKeyTab() {
+        return keyTab;
     }
 
     /**
-     * Sets the value of the student property.
+     * Sets the value of the keyTab property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Student }
+     *     {@link String }
      *     
      */
-    public void setStudent(Student value) {
-        this.student = value;
+    public void setKeyTab(String value) {
+        this.keyTab = value;
     }
 
 }

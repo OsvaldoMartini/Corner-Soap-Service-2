@@ -6,19 +6,13 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import com.shifthunter.conveniencecardconfigurationmock.GetNapAndCityListRequest;
-
-import ch.corner.service.conveniencecard.common.conveniencecardconfiguration.BasicRequest;
-import ch.corner.service.conveniencecard.common.conveniencecardconfiguration.BasicResponse;
-import ch.corner.service.conveniencecard.common.conveniencecardconfiguration.ObjectFactory;
-import ch.corner.service.conveniencecard.configuration.conveniencecardconfiguration.GetNapAndCityListResponse;
-
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementRef.DEFAULT;
+import ch.corner.service.conveniencecard.common.BasicRequest;
+import ch.corner.service.conveniencecard.common.BasicResponse;
+import ch.corner.service.conveniencecard.configuration.GetNapAndCityListResponse;
 
 @Endpoint
 public class OfficialNapAndCityEndPoint {
-	private static final String NAMESPACE_URI = "http://configuration.conveniencecard.service.corner.ch/convenienceCardConfiguration";
+	private static final String NAMESPACE_URI = "http://configuration.conveniencecard.service.corner.ch";
 
 	private OfficialNapAndCityRepository officialNapAndCityRepository;
 
@@ -43,10 +37,10 @@ public class OfficialNapAndCityEndPoint {
 //			
 //		return ;
 		
-		BasicResponse response = new BasicResponse();
+		//BasicResponse response = new BasicResponse();
 		//response.setListNapAndCity(officialNapAndCityRepository.findAllNapAndCity());
 
-		return response;
+		return null;
 	}
 	
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getNationListRequest")

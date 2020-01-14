@@ -57,6 +57,7 @@
 	<xs:element name="GetNapAndCityListRequest">
 		<xs:complexType>
 			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="1" nillable="false" name="callInfo" type="tns:callInfo" />
 				<xs:element name="timeStamp" type="xs:string" />
 			</xs:sequence>
 		</xs:complexType>
@@ -78,5 +79,18 @@
 		</xs:sequence>
 	</xs:complexType>
 
-
+	<xs:complexType name="callInfo">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="1" nillable="false"
+				name="requestID" type="xs:string" />
+			<xs:element minOccurs="1" maxOccurs="1" nillable="false"
+				name="systemID" type="xs:string" />
+			<xs:element minOccurs="1" maxOccurs="1" nillable="false"
+				name="clientID" type="xs:string" />
+			<xs:element minOccurs="1" maxOccurs="1" nillable="false"
+				name="calledOperation" type="xs:string" />
+			<xs:element minOccurs="1" maxOccurs="1" nillable="false"
+				name="timestamp" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>

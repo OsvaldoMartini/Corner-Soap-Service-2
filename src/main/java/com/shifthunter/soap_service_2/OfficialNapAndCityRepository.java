@@ -11,8 +11,9 @@ import javax.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
-import ch.corner.service.conveniencecard.configuration.conveniencecardconfiguration.NapAndCity;
-import ch.corner.service.conveniencecard.configuration.conveniencecardconfiguration.TListNapAndCity;
+import ch.corner.service.conveniencecard.configuration.NapAndCity;
+import ch.corner.service.conveniencecard.configuration.TListNapAndCity;
+
 
 @Component
 public class OfficialNapAndCityRepository  {

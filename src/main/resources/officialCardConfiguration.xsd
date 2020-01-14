@@ -1,25 +1,22 @@
 <xs:schema
-	targetNamespace="http://configuration.conveniencecard.service.corner.ch/convenienceCardConfiguration"
-	xmlns:tns="http://configuration.conveniencecard.service.corner.ch/convenienceCardConfiguration"
+	targetNamespace="http://configuration.conveniencecard.service.corner.ch"
+	xmlns:tns="http://configuration.conveniencecard.service.corner.ch"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:bas="http://common.conveniencecard.service.corner.ch/convenienceCardConfiguration">
+	xmlns:bas="http://common.conveniencecard.service.corner.ch">
+
 
 	<xs:import
-		namespace="http://common.conveniencecard.service.corner.ch/convenienceCardConfiguration"
+		namespace="http://common.conveniencecard.service.corner.ch"
 		schemaLocation="ConvenienceCardCommons.xsd" />
 
 	<xs:element name="getNapAndCityListRequest" type="bas:basicRequest" />
-	<xs:element name="getNapAndCityListResponse"
-		type="tns:getNapAndCityListResponse" />
+	<xs:element name="getNapAndCityListResponse" type="tns:getNapAndCityListResponse" />
 	<xs:element name="getNationListRequest" type="bas:basicRequest" />
-	<xs:element name="getNationListResponse"
-		type="tns:getNationListResponse" />
+	<xs:element name="getNationListResponse" type="tns:getNationListResponse" />
 	<xs:element name="getDecodedPF20Request" type="tns:getDecodedPF20" />
-	<xs:element name="getDecodedPF20Response"
-		type="tns:getDecodedPF20Response" />
+	<xs:element name="getDecodedPF20Response" type="tns:getDecodedPF20Response" />
 	<xs:element name="getParamInfoRequest" type="bas:basicRequest" />
-	<xs:element name="getParamInfoResponse"
-		type="tns:getParamInfoResponse" />
+	<xs:element name="getParamInfoResponse"	type="tns:getParamInfoResponse" />
 
 	<xs:complexType name="getNapAndCityListResponse">
 		<xs:complexContent>
@@ -27,8 +24,7 @@
 				<xs:sequence>
 					<xs:element minOccurs="0" maxOccurs="unbounded"
 						name="napAndCity" type="tns:napAndCity" />
-					<xs:element name="listNapAndCity"
-						type="tns:tListNapAndCity" />
+					<xs:element name="listNapAndCity" type="tns:tListNapAndCity" />
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
