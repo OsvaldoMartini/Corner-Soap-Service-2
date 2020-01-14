@@ -1,4 +1,4 @@
-package com.shifthunter.soap_service_1;
+package com.shifthunter.soap_service_2;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -11,7 +11,7 @@ import com.shifthunter.conveniencecardconfigurationmock.StudentDetailsResponse;
 
 @Endpoint
 public class StudentEndpoint {
-	private static final String NAMESPACE_URI = "http://configuration.conveniencecard.service.corner.ch/convenienceCardConfiguration";
+	private static final String NAMESPACE_URI = "http://www.shifthunter.com/convenienceCardConfigurationMock";
 
 	private StudentRepository StudentRepository;
 

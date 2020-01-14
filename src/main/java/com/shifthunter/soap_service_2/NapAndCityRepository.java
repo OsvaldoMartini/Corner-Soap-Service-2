@@ -1,4 +1,4 @@
-package com.shifthunter.soap_service_1;
+package com.shifthunter.soap_service_2;
 
 import java.util.ArrayList;
 import java.util.Arrays;

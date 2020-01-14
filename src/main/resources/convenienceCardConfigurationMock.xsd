@@ -3,7 +3,6 @@
 	targetNamespace="http://www.shifthunter.com/convenienceCardConfigurationMock"
 	elementFormDefault="qualified">
 
-
 	<xs:element name="StudentDetailsRequest">
 		<xs:complexType>
 			<xs:sequence>
@@ -62,20 +61,22 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	
+
 	<xs:element name="GetNapAndCityListResponse">
-		<xs:complexType >
+		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="listNapAndCity" type="tns:tListNapAndCity" />
+				<xs:element name="listNapAndCity"
+					type="tns:tListNapAndCity" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	
+
 	<xs:complexType name="tListNapAndCity">
 		<xs:sequence>
-				<xs:element name="NapAndCity" type="tns:tNapAndCity"   minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="NapAndCity" type="tns:tNapAndCity"
+				minOccurs="0" maxOccurs="unbounded" />
 		</xs:sequence>
 	</xs:complexType>
-	
+
 
 </xs:schema>

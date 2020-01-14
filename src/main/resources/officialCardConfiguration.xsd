@@ -1,105 +1,142 @@
-<xs:schema targetNamespace="http://configuration.conveniencecard.service.corner.ch/convenienceCardConfiguration" version="1.0" 
-xmlns:tns="http://configuration.conveniencecard.service.corner.ch/convenienceCardConfiguration" 
-xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bas="http://common.conveniencecard.service.corner.ch">
-   <xs:import namespace="http://common.conveniencecard.service.corner.ch" schemaLocation="ConvenienceCardCommons.xsd"/>
-   <xs:element name="getNapAndCityList" type="bas:basicRequest"/>
-   <xs:element name="getNapAndCityListResponse" type="tns:getNapAndCityListResponse"/>
-   <xs:element name="getNationList" type="bas:basicRequest"/>
-   <xs:element name="getNationListResponse" type="tns:getNationListResponse"/>
-   <xs:element name="getDecodedPF20" type="tns:getDecodedPF20"/>
-   <xs:element name="getDecodedPF20Response" type="tns:getDecodedPF20Response"/>
-   <xs:element name="getParamInfo" type="bas:basicRequest"/>
-   <xs:element name="getParamInfoResponse" type="tns:getParamInfoResponse"/>
+<xs:schema
+	targetNamespace="http://configuration.conveniencecard.service.corner.ch/convenienceCardConfiguration"
+	xmlns:tns="http://configuration.conveniencecard.service.corner.ch/convenienceCardConfiguration"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:bas="http://common.conveniencecard.service.corner.ch/convenienceCardConfiguration">
 
-   <xs:complexType name="getNapAndCityListResponse">
-      <xs:complexContent>
-         <xs:extension base="bas:basicResponse">
-            <xs:sequence>
-               <xs:element minOccurs="0" maxOccurs="unbounded" name="napAndCity" type="tns:napAndCity"/>
-               <xs:element name="listNapAndCity" type="tns:tListNapAndCity" />
-            </xs:sequence>
-         </xs:extension>
-      </xs:complexContent>
-   </xs:complexType>
-   
-   	<xs:complexType name="tListNapAndCity">
+	<xs:import
+		namespace="http://common.conveniencecard.service.corner.ch/convenienceCardConfiguration"
+		schemaLocation="ConvenienceCardCommons.xsd" />
+
+	<xs:element name="getNapAndCityListRequest" type="bas:basicRequest" />
+	<xs:element name="getNapAndCityListResponse"
+		type="tns:getNapAndCityListResponse" />
+	<xs:element name="getNationListRequest" type="bas:basicRequest" />
+	<xs:element name="getNationListResponse"
+		type="tns:getNationListResponse" />
+	<xs:element name="getDecodedPF20Request" type="tns:getDecodedPF20" />
+	<xs:element name="getDecodedPF20Response"
+		type="tns:getDecodedPF20Response" />
+	<xs:element name="getParamInfoRequest" type="bas:basicRequest" />
+	<xs:element name="getParamInfoResponse"
+		type="tns:getParamInfoResponse" />
+
+	<xs:complexType name="getNapAndCityListResponse">
+		<xs:complexContent>
+			<xs:extension base="bas:basicResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded"
+						name="napAndCity" type="tns:napAndCity" />
+					<xs:element name="listNapAndCity"
+						type="tns:tListNapAndCity" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="tListNapAndCity">
 		<xs:sequence>
-				<xs:element name="NapAndCity" type="tns:napAndCity"   minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="NapAndCity" type="tns:napAndCity"
+				minOccurs="0" maxOccurs="unbounded" />
 		</xs:sequence>
 	</xs:complexType>
-   
-   <xs:complexType name="napAndCity">
-      <xs:sequence>
-         <xs:element minOccurs="0" maxOccurs="1" name="zipCode" type="xs:string"/>
-         <xs:element minOccurs="0" maxOccurs="1" name="zipSequence" type="xs:string"/>
-         <xs:element minOccurs="0" maxOccurs="1" name="city" type="xs:string"/>
-         <xs:element minOccurs="0" maxOccurs="1" name="canton" type="xs:string"/>
-         <xs:element minOccurs="0" maxOccurs="1" name="locationCode" type="xs:string"/>
-      </xs:sequence>
-   </xs:complexType>
-   <xs:complexType name="getNationListResponse">
-      <xs:complexContent>
-         <xs:extension base="bas:basicResponse">
-            <xs:sequence>
-               <xs:element minOccurs="0" maxOccurs="unbounded" name="nation" type="tns:nation"/>
-            </xs:sequence>
-         </xs:extension>
-      </xs:complexContent>
-   </xs:complexType>
-   <xs:complexType name="nation">
-      <xs:sequence>
-         <xs:element minOccurs="0" maxOccurs="1" name="nationCodeIso3" type="xs:string"/>
-         <xs:element minOccurs="0" maxOccurs="1" name="nationCodeIso2" type="xs:string"/>
-         <xs:element minOccurs="0" maxOccurs="1" name="nationCodeCb" type="xs:string"/>
-         <xs:element minOccurs="0" maxOccurs="1" name="nationI" type="xs:string"/>
-         <xs:element minOccurs="0" maxOccurs="1" name="nationD" type="xs:string"/>
-         <xs:element minOccurs="0" maxOccurs="1" name="nationF" type="xs:string"/>
-         <xs:element minOccurs="0" maxOccurs="1" name="nationE" type="xs:string"/>
-         <xs:element minOccurs="0" maxOccurs="1" name="phoneCountryCode" type="xs:string"/>
-      </xs:sequence>
-   </xs:complexType>
-   <xs:complexType name="getDecodedPF20">
-      <xs:complexContent>
-         <xs:extension base="bas:basicRequest">
-            <xs:sequence>
-               <!--max len 8-->
-               <xs:element name="keyTab" type="xs:string"/>
-            </xs:sequence>
-         </xs:extension>
-      </xs:complexContent>
-   </xs:complexType>
-   <xs:complexType name="getDecodedPF20Response">
-      <xs:complexContent>
-         <xs:extension base="bas:basicResponse">
-            <xs:sequence>
-               <xs:element minOccurs="0" maxOccurs="unbounded" name="element" type="tns:pf20Element"/>
-            </xs:sequence>
-         </xs:extension>
-      </xs:complexContent>
-   </xs:complexType>
-   <xs:complexType name="pf20Element">
-      <xs:sequence>
-         <xs:element minOccurs="0" maxOccurs="1" name="keyElement" type="xs:string"/>
-         <xs:element minOccurs="0" maxOccurs="1" name="decodeElement" type="xs:string"/>
-      </xs:sequence>
-   </xs:complexType>
-   <xs:complexType name="getParamInfoResponse">
-      <xs:complexContent>
-         <xs:extension base="bas:basicResponse">
-            <xs:sequence>
-               <xs:element minOccurs="0" maxOccurs="unbounded" name="paramInfo" type="tns:paramInfo"/>
-            </xs:sequence>
-         </xs:extension>
-      </xs:complexContent>
-   </xs:complexType>
-   <xs:complexType name="paramInfo">
-      <xs:sequence>
-         <xs:element name="partner" minOccurs="0" maxOccurs="1" type="xs:string"/>
-         <xs:element name="productType" minOccurs="0" maxOccurs="1" type="xs:string"/>
-         <xs:element name="numberOfPartnerPerClient" minOccurs="0" maxOccurs="1" type="xs:int"/>
-         <xs:element name="numberOfCardsPerClient" minOccurs="0" maxOccurs="1" type="xs:int"/>
-         <xs:element name="annualReloadableAmount" minOccurs="0" maxOccurs="1" type="xs:decimal"/>
-         <xs:element name="annualReloadableAmountCurrency" minOccurs="0" maxOccurs="1" type="xs:string"/>
-      </xs:sequence>
-   </xs:complexType>
+
+	<xs:complexType name="napAndCity">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="1" name="zipCode"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="zipSequence"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="city"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="canton"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1"
+				name="locationCode" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="getNationListResponse">
+		<xs:complexContent>
+			<xs:extension base="bas:basicResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded"
+						name="nation" type="tns:nation" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="nation">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="1"
+				name="nationCodeIso3" type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1"
+				name="nationCodeIso2" type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1"
+				name="nationCodeCb" type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="nationI"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="nationD"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="nationF"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1" name="nationE"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1"
+				name="phoneCountryCode" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="getDecodedPF20">
+		<xs:complexContent>
+			<xs:extension base="bas:basicRequest">
+				<xs:sequence>
+					<!--max len 8 -->
+					<xs:element name="keyTab" type="xs:string" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="getDecodedPF20Response">
+		<xs:complexContent>
+			<xs:extension base="bas:basicResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded"
+						name="element" type="tns:pf20Element" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="pf20Element">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="1" name="keyElement"
+				type="xs:string" />
+			<xs:element minOccurs="0" maxOccurs="1"
+				name="decodeElement" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="getParamInfoResponse">
+		<xs:complexContent>
+			<xs:extension base="bas:basicResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded"
+						name="paramInfo" type="tns:paramInfo" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="paramInfo">
+		<xs:sequence>
+			<xs:element name="partner" minOccurs="0" maxOccurs="1"
+				type="xs:string" />
+			<xs:element name="productType" minOccurs="0" maxOccurs="1"
+				type="xs:string" />
+			<xs:element name="numberOfPartnerPerClient" minOccurs="0"
+				maxOccurs="1" type="xs:int" />
+			<xs:element name="numberOfCardsPerClient" minOccurs="0"
+				maxOccurs="1" type="xs:int" />
+			<xs:element name="annualReloadableAmount" minOccurs="0"
+				maxOccurs="1" type="xs:decimal" />
+			<xs:element name="annualReloadableAmountCurrency"
+				minOccurs="0" maxOccurs="1" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
