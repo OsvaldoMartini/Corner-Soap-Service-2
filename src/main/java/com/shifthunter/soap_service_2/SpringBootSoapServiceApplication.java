@@ -2,8 +2,11 @@ package com.shifthunter.soap_service_2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-@SpringBootApplication
+@EnableEurekaClient
+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class SpringBootSoapServiceApplication {
 
 	public static void main(String[] args) {
