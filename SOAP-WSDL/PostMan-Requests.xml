@@ -1,0 +1,75 @@
+PostMan SOAP-WSDL  requets
+
+Name: GetNapAndCityList Official
+
+http://localhost:9222/service
+
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:con="http://configuration.conveniencecard.service.corner.ch">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <con:getNapAndCityListRequest>
+         <callInfo>
+            <requestID>?</requestID>
+            <systemID>?</systemID>
+            <clientID>?</clientID>
+            <calledOperation>getNapAndCityList</calledOperation>
+            <timestamp>?</timestamp>
+         </callInfo>
+      </con:getNapAndCityListRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+
+Name: GetNapAndCityRequest
+
+http://localhost:9222/service/
+
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <Body>
+        <GetNapAndCityRequest xmlns="http://www.shifthunter.com/convenienceCardConfigurationMock">
+            <callInfo>
+                <requestID>[string]</requestID>
+                <systemID>[string]</systemID>
+                <clientID>[string]</clientID>
+                <calledOperation>[string]</calledOperation>
+                <timestamp>[string]</timestamp>
+            </callInfo>
+            <city>LAUSANNE 2</city>
+            <timeStamp>[string]</timeStamp>
+        </GetNapAndCityRequest>
+    </Body>
+</Envelope>
+
+Name: GetNapAndCityList City
+http://localhost:9222/service/
+
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <Body>
+        <GetNapAndCityListRequest xmlns="http://www.shifthunter.com/convenienceCardConfigurationMock">
+            <callInfo>
+                <requestID>[string]</requestID>
+                <systemID>[string]</systemID>
+                <clientID>[string]</clientID>
+                <calledOperation>[string]</calledOperation>
+                <timestamp>[string]</timestamp>
+            </callInfo>
+            <timeStamp>[string]</timeStamp>
+        </GetNapAndCityListRequest>
+    </Body>
+</Envelope>
+
+Name: GetNapAndCityList LocalHost
+http://localhost:9222/service/ConvenienceCardConfiguration
+
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <Body>
+        <GetNapAndCityRequest xmlns="http://www.shifthunter.com/convenienceCardConfigurationMock">
+            <timeStamp>[string]</timeStamp>
+              <city>LAUSANNE 2</city>
+        </GetNapAndCityRequest>
+        
+    </Body>
+</Envelope>
+
